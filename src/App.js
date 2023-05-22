@@ -1,24 +1,73 @@
-import logo from './logo.svg';
+
+import { useState } from 'react';
+import { Routes, Route } from "react-router-dom"
 import './App.css';
+import About from './componants/About';
+import Navbar1 from './componants/Navbar1';
+import Textarea from './componants/Textarea';
+import Alertarea from './componants/Alertarea';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
+const [mode,setMode] = useState('light');
+const [alert,setAlert] = useState(null)
+
+const showAlert = (message,type) =>
+{
+ setAlert({
+  msg : message,
+  type: type 
+ })
+ setTimeout(() => {
+  setAlert(null)
+ },1500);
+}
+
+const togglemode = () =>
+{
+  if(mode === 'light')
+  {
+    setMode('dark');
+    document.body.style.backgroundColor = 'black'
+    showAlert("Dark Mode Enabled" , "success")
+  }
+  else
+  {
+    setMode('light')
+    document.body.style.backgroundColor = 'white'
+    showAlert("Light Mode Enabled" , "success")
+  }
+}
+
+const togglemode1 = () =>
+{
+  if(mode === 'light')
+  {
+    setMode('primary');
+    document.body.style.backgroundColor = '#bde0fe'
+    showAlert("Dark Mode Enabled" , "success")
+  }
+  else
+  {
+    setMode('light')
+    document.body.style.backgroundColor = 'white'
+    showAlert("Light Mode Enabled" , "success")
+  }
+}
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <>
+
+      <Navbar1 title='TextUtils' aboutText='About' mode={mode} togglemode={togglemode} togglemode1={togglemode1}/>
+      <Alertarea alert={alert}/>
+    <Routes>
+        <Route path="/" element={ 
+        <Textarea hed="Enter Text For Analyze"  mode={mode} showAlert={showAlert}/> 
+          } /> 
+        <Route path="about" element={ <About/> } />
+      </Routes>
+  </>
   );
 }
 
