@@ -73,7 +73,7 @@ export default function Textarea(props) {
   return (
     <div className='container'>
     <div>
-        <h1 className='py5 hed' style={{color:props.mode === 'light' ? 'black' : 'primary' ? 'blue' : 'dark' ? 'white' : 'white'}}>{props.hed}</h1>
+        <h1 className='pb5 hed' style={{color:props.mode === 'light' ? 'black' : 'primary' ? 'blue' : 'dark' ? 'white' : 'white'}}>{props.hed}</h1>
        <textarea className="form-control" value={Text} rows="8" style={{backgroundColor:props.mode === 'light' ? 'white' : 'primary'? '#bde0fe' : 'black' , color: props.mode === 'light' ? 'black'  : 'primary'? 'blue' :  'white' }} onChange={handleText} id='box'></textarea>
        <div className='btngroup'>
         <button disabled={Text.length===0} className={`btn btn-${props.mode === 'light' ? 'primary' : 'primary' ? 'primary' : 'dark'} my-3 py-2 mx-1`} onClick={handleUpClick}>Change On Uppercase</button>

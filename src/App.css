@@ -8,7 +8,7 @@
 }
 .hed
 {
-padding-top: 35px!important;
+/* padding-top: 35px!important; */
 padding-bottom: 20px!important;
 
 }
@@ -19,4 +19,9 @@ padding-bottom: 20px!important;
 .form-control
 {
   border: 4px solid black;
+}
+.alertarea
+{
+  height: 100px;
+  width: 100vw;
 }

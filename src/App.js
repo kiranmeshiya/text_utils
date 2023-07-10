@@ -29,13 +29,13 @@ const togglemode = () =>
   {
     setMode('dark');
     document.body.style.backgroundColor = 'black'
-    showAlert("Dark Mode Enabled" , "success")
+    showAlert("Dark Mode Enabled" , "light")
   }
   else
   {
     setMode('light')
     document.body.style.backgroundColor = 'white'
-    showAlert("Light Mode Enabled" , "success")
+    showAlert("Light Mode Enabled" , "dark")
   }
 }
 
@@ -45,13 +45,13 @@ const togglemode1 = () =>
   {
     setMode('primary');
     document.body.style.backgroundColor = '#bde0fe'
-    showAlert("Dark Mode Enabled" , "success")
+    showAlert("Dark Mode Enabled" , "primary")
   }
   else
   {
     setMode('light')
     document.body.style.backgroundColor = 'white'
-    showAlert("Light Mode Enabled" , "success")
+    showAlert("Light Mode Enabled" , "dark")
   }
 }
 
@@ -60,7 +60,7 @@ const togglemode1 = () =>
   <>
 
       <Navbar1 title='TextUtils' aboutText='About' mode={mode} togglemode={togglemode} togglemode1={togglemode1}/>
-      <Alertarea alert={alert}/>
+      <div className='alertarea'><Alertarea alert={alert}/></div>
     <Routes>
         <Route path="/" element={ 
         <Textarea hed="Enter Text For Analyze"  mode={mode} showAlert={showAlert}/> 
